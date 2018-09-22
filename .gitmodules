@@ -1,0 +1,3 @@
+[submodule "ctralie_FaceJam/src/GraphDitty"]
+	path = ctralie_FaceJam/src/GraphDitty
+	url = https://github.com/ctralie/GraphDitty.git
