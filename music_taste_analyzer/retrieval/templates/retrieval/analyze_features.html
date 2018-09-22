@@ -1,0 +1,23 @@
+
+{% extends 'retrieval/base.html' %}
+
+{% block content %}
+<div>
+<table>
+        <tr>
+            <td>Feature</td>
+            <td>Variance</td>
+            <td>Mean</td>
+        </tr>
+    {% for label, var, mean in results %}
+        <tr>
+            <td>{{ label }}</td>
+            <td>{{ var|floatformat:-3 }}</td>
+            <td>{{ mean|floatformat:-3 }}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+</div>
+{% endblock %}

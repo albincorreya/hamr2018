@@ -1,0 +1,31 @@
+{% extends 'retrieval/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Search anything</h1>
+            <form action="/search/" method="get" class="post-form">{% csrf_token %}
+                <input type="text" name="q">
+                <input type="submit" value="Search">
+            </form>
+
+            {% block result %}
+            {% endblock %}
+        </div>
+        <div class="col-sm-4">
+            {% for mytrack in mytracks %}
+            <div class="post">
+
+                <a href="{% url 'delete_track' id=mytrack.id %}" type="button"><button type="button">delete</button></a>
+                <p><a href="{% url 'track_info' id=mytrack.id %}">{{ mytrack.track_name }}</a></p>
+                <p>{{ mytrack.artist|linebreaksbr }}</p>
+            </div>
+
+            {% endfor %}
+
+            <a href="{% url 'analyze_features' %}" type="button"><button type="button">Analyze!</button></a>
+        </div>
+
+    </div>
+
+{% endblock %}
